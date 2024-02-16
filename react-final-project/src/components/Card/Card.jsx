@@ -2,16 +2,18 @@ import {
   Card, CardActions, CardContent, CardMedia, Button, Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CardWrapper, DescriptionTypography } from './styled';
 import QuizModal from '../Modals/QuizModal';
 import BaseModal from '../Modals/BaseModal';
 
 const QuizCard = ({
-  image, title, description,
+  id, image, title, description,
 }) => {
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
-  const handleStartClick = () => alert('Your quiz starts now!');
+  const handleStartClick = () => navigate(`/quizCards/${id}`);
   const handleShowClick = () => setOpenModal(true);
   const handleClose = () => setOpenModal(false);
 
